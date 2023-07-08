@@ -98,6 +98,7 @@ And here's the contents of the npm package.
 
 ### The Code
 
+The code is essentially the same code you would implement to a shortcode, filter, or custom collection in an Eleventy site. The only difference is that the shortcode, filter, and collection are exported as a Module.
 
 ```js
 const randomNumbers = (eleventyConfig) => {
@@ -135,3 +136,23 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(sayHello);
 }
 ```
+
+I chose to structure the code into several constants then export the code that adds each as plugins. If you look at other plugins, you'll see other styles of doing the same thing. 
+
+For example, in my [eleventy-plugin-post-stats](https://github.com/johnwargo/eleventy-plugin-post-stats) plugin, the export and plugin code are all in the same block:
+
+```js
+module.exports = function (eleventyConfig: any, options: ModuleOptions = {}) {
+  eleventyConfig.addCollection('postStats', (collectionApi: any) => {
+
+  {{ plugin code goes here }} 
+
+  });
+}
+```
+
+***
+
+You can find information on many different topics on my [personal blog](http://www.johnwargo.com). Learn about all of my publications at [John Wargo Books](http://www.johnwargobooks.com).
+
+If you find this code useful and feel like thanking me for providing it, please consider <a href="https://www.buymeacoffee.com/johnwargo" target="_blank">Buying Me a Coffee</a>, or making a purchase from [my Amazon Wish List](https://amzn.com/w/1WI6AAUKPT5P9).
