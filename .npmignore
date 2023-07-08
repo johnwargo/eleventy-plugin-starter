@@ -1,10 +1,7 @@
 # Folders
+_site/
 node_modules/
 src/
-_site/
 
 # files
-.gitignore
-index.md
-instructions.md
 .gitignore
