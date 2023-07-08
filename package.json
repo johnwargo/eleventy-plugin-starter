@@ -4,7 +4,9 @@
   "description": "Eleventy Plugin starter template",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "eleventy --serve",
+    "build": "eleventy"
   },
   "keywords": [
     "[\"Eleventy\"",

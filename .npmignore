@@ -1,5 +1,6 @@
 # Folders
-_includes/
+node_modules/
+src/
 _site/
 
 # files
