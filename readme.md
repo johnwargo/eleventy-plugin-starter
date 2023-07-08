@@ -39,6 +39,8 @@ Open the link listed in the build output to launch the generated site.
 
 ## Anatomy of an Eleventy Plugin
 
+### The Files
+
 An Eleventy plugin is essentially Javascript code exposed through a Node module. In this project, all an Eleventy project needs to consume the plugin is the `eleventy-plugin-starter-template.js` file in the root of the repository. If you wanted to, you could copy that file to your Eleventy project and load it using the following code in the site's `.eleventy.js` or `eleventy.config.js` file:
 
 ```js
@@ -73,7 +75,9 @@ module.exports = eleventyConfig => {
 
 But at least you don't have to manually copy the JavaScript file to each project.
 
-The project's `.npmignore` handles hiding the Eleventy site project files from npm so that only the files needed to use the plugin make it into the npm package and therefore other Eleventy projects that use the plugin. Here's the contents of the project's `.npmignore` file:
+The project's `.npmignore` handles hiding the Eleventy site project files from npm so that only the files needed to use the plugin make it into the npm package and therefore other Eleventy projects that use the plugin. 
+
+Here's the contents of the project's `.npmignore` file:
 
 ```text
 # Folders
@@ -85,4 +89,8 @@ src/
 .gitignore
 eleventy.config.js
 home.png
+pub.mjs
 ```
+
+### The Code
+

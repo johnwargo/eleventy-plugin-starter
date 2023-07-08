@@ -7,3 +7,4 @@ src/
 .gitignore
 eleventy.config.js
 home.png
+pub.mjs
