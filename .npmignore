@@ -6,3 +6,4 @@ src/
 # files
 .gitignore
 eleventy.config.js
+package-lock.json
