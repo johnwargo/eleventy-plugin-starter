@@ -36,3 +36,29 @@ This installs the required modules then builds the site:
 Open the link listed in the build output to launch the generated site.
 
 ![Eleventy Site Home Page](home.png)
+
+## Anatomy of an Eleventy Plugin
+
+An Eleventy plugin is essentially Javascript code exposed through a Node module. In this project, all an Eleventy project needs to consume the plugin is the `eleventy-plugin-starter-template.js` file in the root of the repository. If you wanted to, you could copy that file to your Eleventy project and load it using:
+
+```js
+const starterTemplate = require('./eleventy-plugin-starter-template.js');
+
+module.exports = eleventyConfig => {
+
+  eleventyConfig.addPlugin(starterTemplate);
+
+	eleventyConfig.addPassthroughCopy("src/assets/");
+	
+	return {
+		dir: {
+			input: 'src',
+			output: "_site",
+			includes: "_includes",
+			layouts: "_layouts",
+			data: "_data"
+		}
+	}
+
+};
+```
