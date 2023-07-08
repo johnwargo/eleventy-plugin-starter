@@ -1,0 +1,9 @@
+# Folders
+_includes/
+_site/
+
+# files
+.gitignore
+index.md
+instructions.md
+.gitignore
