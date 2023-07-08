@@ -39,7 +39,7 @@ Open the link listed in the build output to launch the generated site.
 
 ## Anatomy of an Eleventy Plugin
 
-An Eleventy plugin is essentially Javascript code exposed through a Node module. In this project, all an Eleventy project needs to consume the plugin is the `eleventy-plugin-starter-template.js` file in the root of the repository. If you wanted to, you could copy that file to your Eleventy project and load it using:
+An Eleventy plugin is essentially Javascript code exposed through a Node module. In this project, all an Eleventy project needs to consume the plugin is the `eleventy-plugin-starter-template.js` file in the root of the repository. If you wanted to, you could copy that file to your Eleventy project and load it using the following code in the site's `.eleventy.js` or `eleventy.config.js` file:
 
 ```js
 const starterTemplate = require('./eleventy-plugin-starter-template.js');
@@ -48,17 +48,28 @@ module.exports = eleventyConfig => {
 
   eleventyConfig.addPlugin(starterTemplate);
 
-	eleventyConfig.addPassthroughCopy("src/assets/");
-	
-	return {
-		dir: {
-			input: 'src',
-			output: "_site",
-			includes: "_includes",
-			layouts: "_layouts",
-			data: "_data"
-		}
-	}
+};
+```
+
+With that in place, you can use the capabilities exposed by the plugin in the site (as illustrated in this repository's the repository's `src/index.md` file).
+
+Node and `npm` make it easier by packaging the JavaScript file, the `package.json` file, and other stuff into a package you publish to https://npmjs.org so others can easily install it in an eleventy site using:
+
+```shell
+npm install eleventy-plugin-starter-template
+```
+
+you still have to do this stuff:
+
+```js
+const starterTemplate = require('./eleventy-plugin-starter-template.js');
+
+module.exports = eleventyConfig => {
+
+  eleventyConfig.addPlugin(starterTemplate);
 
 };
 ```
+
+But at least you don't have to manually copy the JavaScript file to each project.
+
