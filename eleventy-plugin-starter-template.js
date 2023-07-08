@@ -1,5 +1,3 @@
-// TODO: pass two parameters to RandomNumbers
-
 const randomNumbers = (eleventyConfig) => {
   eleventyConfig.addCollection('RandomNumbers', () => {
     let numbers = [];
