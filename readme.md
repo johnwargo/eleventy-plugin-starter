@@ -145,7 +145,7 @@ For example, in my [eleventy-plugin-post-stats](https://github.com/johnwargo/ele
 module.exports = function (eleventyConfig: any, options: ModuleOptions = {}) {
   eleventyConfig.addCollection('postStats', (collectionApi: any) => {
 
-  {{ plugin code goes here }} 
+   {{ plugin code goes here }} 
 
   });
 }
