@@ -160,6 +160,8 @@ module.exports = function (eleventyConfig: any, options: ModuleOptions = {}) {
 }
 ```
 
+By the way, that plugin is written in TypeScript, so you can use it as an example for TypeScript-driven Eleventy plugins. 
+
 ***
 
 You can find information on many different topics on my [personal blog](http://www.johnwargo.com). Learn about all of my publications at [John Wargo Books](http://www.johnwargobooks.com).
