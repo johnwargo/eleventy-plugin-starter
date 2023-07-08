@@ -9,8 +9,8 @@
     "build": "eleventy"
   },
   "keywords": [
-    "[\"Eleventy\"",
-    "\"Plugin\"]"
+    "Eleventy",
+    "Plugin"
   ],
   "author": "John M. Wargo",
   "license": "MIT",
