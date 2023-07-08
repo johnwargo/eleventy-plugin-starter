@@ -1,4 +1,4 @@
-# Eleventy Plugin Post Statistics
+# Eleventy Plugin Starter (JavaScript)
 
 describe this project
 
