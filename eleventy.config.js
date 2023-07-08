@@ -4,8 +4,8 @@ module.exports = eleventyConfig => {
 
   eleventyConfig.addPlugin(starterTemplate);
 
-
 	eleventyConfig.addPassthroughCopy("src/assets/");
+	
 	return {
 		dir: {
 			input: 'src',
