@@ -92,5 +92,9 @@ home.png
 pub.mjs
 ```
 
+And here's the contents of the npm package.
+
+![npm page](npm.png)
+
 ### The Code
 
