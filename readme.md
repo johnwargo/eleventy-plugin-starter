@@ -59,10 +59,10 @@ Node and `npm` make it easier by packaging the JavaScript file, the `package.jso
 npm install eleventy-plugin-starter-template
 ```
 
-you still have to do this stuff:
+you still have to do this stuff (notice the `./` is missing from the first line):
 
 ```js
-const starterTemplate = require('./eleventy-plugin-starter-template.js');
+const starterTemplate = require('eleventy-plugin-starter-template.js');
 
 module.exports = eleventyConfig => {
 
@@ -73,3 +73,16 @@ module.exports = eleventyConfig => {
 
 But at least you don't have to manually copy the JavaScript file to each project.
 
+The project's `.npmignore` handles hiding the Eleventy site project files from npm so that only the files needed to use the plugin make it into the npm package and therefore other Eleventy projects that use the plugin. Here's the contents of the project's `.npmignore` file:
+
+```text
+# Folders
+_site/
+node_modules/
+src/
+
+# files
+.gitignore
+eleventy.config.js
+home.png
+```
