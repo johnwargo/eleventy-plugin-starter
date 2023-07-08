@@ -1,21 +1,21 @@
 ---
 siteTitle: Eleventy Plugin Starter
-title: Home
 ---
 
 <!doctype html>
 
 <html lang="en">
   <head>
-    <title>{{ siteTitle }}: {{ title }}</title>
+    <title>{{ siteTitle }}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="author" content="John M. Wargo">
-    <meta name="description" content="A simple home page for the plugin sample site">
+    <meta name="description" content="A simple home page for the Eleventy plugin starter sample site">
   </head>
 
   <body>
     <h1>{{ title }}</h1>
+    {{ content }}
     <script src="/assets/js/index.js"></script>
   </body>
 </html>

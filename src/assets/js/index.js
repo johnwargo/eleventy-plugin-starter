@@ -1,3 +1,1 @@
-(function () {
-  console.log('Application initialized');
-})()
+console.log('Application initialized!');
