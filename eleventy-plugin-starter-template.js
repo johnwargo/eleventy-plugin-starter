@@ -28,8 +28,6 @@ const hello = (eleventyConfig) => {
   });
 };
 
-
-
 module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(commaize);
   eleventyConfig.addPlugin(hello);

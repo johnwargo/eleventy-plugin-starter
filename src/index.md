@@ -13,7 +13,9 @@ Random Numbers: [{% for number in collections.RandomNumbers %}{{ number }}{%- un
 
 ## The `hello` Shortcode
 
-{% hello "John", "Wargo" %}
+{% assign firstName = "John" %}
+{% assign lastName = "Wargo" %}
+{% hello firstName, lastName %}
 
 ## The `sayHello` Filter 
 
@@ -21,11 +23,11 @@ This filter generates HTML from my first name:
 
 | Style  | Results                     |
 | ------ | --------------------------- |
-| H1     | {{ "John" | sayHello: "h1" }} |
-| H2     | {{ "John" | sayHello: "h2" }} |
-| H3     | {{ "John" | sayHello: "h3" }} |
-| H4     | {{ "John" | sayHello: "h4" }} |
-| p      | {{ "John" | sayHello: "p" }}  |
+| H1     | {{ firstName | sayHello: "h1" }} |
+| H2     | {{ firstName | sayHello: "h2" }} |
+| H3     | {{ firstName | sayHello: "h3" }} |
+| H4     | {{ firstName | sayHello: "h4" }} |
+| p      | {{ firstName | sayHello: "p" }}  |
 
 ## The `commaize` Filter
 
