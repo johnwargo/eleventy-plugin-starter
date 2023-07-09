@@ -6,14 +6,15 @@
   - [Anatomy of an Eleventy Plugin](#anatomy-of-an-eleventy-plugin)
     - [The Files](#the-files)
     - [The Code](#the-code)
+  - [Using This  Project](#using-this--project)
 
 <!-- /TOC -->
 
 When I first started trying to figure out how to write my own Eleventy plugin, many of the articles showed how to do it, but never showed a complete project. For me, to truly understand what I had to deliver in my plugin, I had to know what the project structure looked like. Once I had that, the rest of the work was just writing the JavaScript code for the plugin. 
 
-This repository contains a complete Eleventy plugin as well as a complete Eleventy site that exercises the plugin. With this approach, you done have to maintain an external Eleventy project to test the plugin as you work, you can code and test the plugin in the same place.
+This repository contains a complete Eleventy plugin as well as a complete Eleventy site that exercises the plugin. With this approach, you done have to maintain an external Eleventy project to test the plugin as you work, you can code and test the plugin in the same place. I created this repository to demonstrate what a simple but complete Eleventy plugin project looks like and works rather than a fill in your code here template.
 
-To make this project more useful to you, it includes several Eleventy capabilities through the plugin:
+To make this project more useful to you as you learn, it includes several Eleventy capabilities through the plugin:
 
 * An Eleventy `randomNumbers` collection that returns a list of 10 random numbers.
 * An Eleventy `hello` shortcode that takes a name variable and returns the standard "hello, Name" you see in many examples
@@ -161,6 +162,67 @@ module.exports = function (eleventyConfig: any, options: ModuleOptions = {}) {
 ```
 
 By the way, that plugin is written in TypeScript, so you can use it as an example for TypeScript-driven Eleventy plugins. 
+
+
+## Using This  Project
+
+To use this repository as a starting point for your Plugin, do the following:
+
+Rename the project's `eleventy-plugin-starter-template.js` file to match the name of your plugin (or whatever you want to call it). 
+
+In the project's `package.json` file, change the value in the `name` property to match the name of your plugin. Note that by convention Eleventy plugin names all begin with `eleventy-plugin`. Next change the file's `main` property to match the JvaScript file name.
+
+```json
+{
+  "name": "eleventy-plugin-your-template",
+  "version": "0.0.2",
+  "description": "Eleventy Plugin starter template",
+  "main": "eleventy-plugin-your-code.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "keywords": [
+    "Eleventy",
+    "Plugin"
+  ],
+  "author": "John M. Wargo",
+  "license": "MIT",
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}
+```
+
+Open the project's `eleventy.config.js` file and make the following changes:
+
+1. In the first line, replace the `const starterTemplate = require('./eleventy-plugin-starter-template.js');` line with a constant name appropriate for the plugin and the file name for your plugin's main code (as shown below). Notice that the file loads via `./` which means it pulls in the local file rather than an installed module from `node_modules` like it would for any Eleventy project that uses the plugin.
+2. Change the line that adds the plugin to the Eleventy project: `eleventyConfig.addPlugin(starterTemplate);` replacing `starterTemplate` wih the constant you created in step 1.
+
+```js
+const someConstant = require('./eleventy-plugin-your-code.js');
+
+module.exports = eleventyConfig => {
+
+  eleventyConfig.addPlugin(someConstant);
+
+	eleventyConfig.addPassthroughCopy("src/assets/");
+	
+	return {
+		dir: {
+			input: 'src',
+			output: "_site",
+			includes: "_includes",
+			layouts: "_layouts",
+			data: "_data"
+		}
+	}
+
+};
+```
+
+Finally, open the JavaScript file and code away, using the provided code as an example. If you have questions or problems, create an [Issue](https://github.com/johnwargo/eleventy-plugin-starter/issues) and I'll do what I can to help.
 
 ***
 
